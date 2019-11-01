@@ -2,8 +2,10 @@
 
 puts "Enter first number (decimal numbers will be rounded and words will be replaced by 0):"
 num1 = Kernel.gets().chomp().to_i
+
 puts "Enter second number (decimal numbers will be rounded and words will be replaced by 0):"
 num2 = Kernel.gets().chomp().to_i
+
 puts "What type of math operation do you want to perform on your two numbers?"
 puts "(Enter 'a' for add, 's' for subtract, 'm' for multiply or 'd' for divide"
 operation = Kernel.gets().chomp()

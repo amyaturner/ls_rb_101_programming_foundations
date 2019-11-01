@@ -4,8 +4,6 @@
 
 
 
-
-
 # File Class
 # Class Method:  ::path
 File.path("/dev/null")          #=> "/dev/null"
@@ -31,7 +29,8 @@ puts f.path
 
 # Answer:
 
-# The methods can be found in File Class
+# The methods can be found in File Class:
+# https://docs.ruby-lang.org/en/2.6.0/File.html
 
 # I know the differentce is the :: one is a class method (used on File directly) and the # one is an instance method (used on the filename (or if you want to create a new file on File.new).
 # But I'm not 100% sure how else they differ. The docs say they both return a string of the path.  Not sure what else each is doing behind the scenes.
