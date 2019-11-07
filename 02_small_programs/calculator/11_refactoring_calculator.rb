@@ -1,11 +1,26 @@
 # 11 - Refactoring Calculator
 
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
+
+num1 = ''
+num2 = ''
+operation = ''
+name = ''
+
 def prompt(message)
   puts "=> #{message}"
 end
 
 def valid_num?(num)
-  num.to_i != 0
+  if num == "0" || num =="0.0"
+    true
+  elsif num.to_i != 0 || num.to_f != 0.0
+    true
+  else
+    false
+  end
 end
 
 def valid_op?(op)
@@ -18,16 +33,19 @@ def valid_op?(op)
 end
 
 def operation_to_msg(op)
-  case op
-  when 'a'
-    "Adding"
-  when 's'
-    "Subtracting"
-  when 'm'
-    "Multiplying"
-  when 'd'
-    "Dividing"
-  end
+  case_result = case op
+                when 'a'
+                  "Adding"
+                when 's'
+                  "Subtracting"
+                when 'm'
+                  "Multiplying"
+                when 'd'
+                  "Dividing"
+                end
+                
+  # What if we added something here?
+  case_result
 end
 
 =begin
@@ -43,17 +61,12 @@ def valid_op?(op)
 end
 =end
 
-num1 = ''
-num2 = ''
-operation = ''
-name = ''
-
-prompt("Welcome to Calculator! Please enter your name:")
+prompt(MESSAGES['welcome'])
 
 loop do
   name = Kernel.gets().chomp()
   if name.empty?() || name == ' '
-    prompt("Please enter a valid name.")
+    prompt(MESSAGES['valid_name'])
   else
     break
   end
@@ -63,59 +76,50 @@ prompt("Hello #{name}!")
 
 loop do # main loop
   loop do
-    prompt("Enter your first number:")
+    prompt(MESSAGES['first_num'])
     num1 = Kernel.gets().chomp()
     if valid_num?(num1)
       break
     else
-      prompt("Please enter a valid number.")
+      prompt(MESSAGES['valid_num'])
     end
   end
 
   loop do
-    prompt("Enter second number:")
+    prompt(MESSAGES['sec_num'])
     num2 = Kernel.gets().chomp()
     if valid_num?(num2)
       break
     else
-      prompt("Please enter a valid number.")
+      prompt(MESSAGES['valid_num'])
     end
   end
 
-  prompt('What math operation do you want to perform on your numbers?')
-  prompt("Enter:
-  a to add,
-  s to subtract,
-  m to multiply,
-  or d to divide
-  ")
+  prompt(MESSAGES['math_operation'])
 
   loop do
     operation = Kernel.gets().chomp()
 
-    if valid_op?(operation)
+    if num2.to_i == 0 && operation == 'd'
+      prompt(MESSAGES['sec_num_zero'])
+    elsif valid_op?(operation)
       break
     else
-      prompt("Must choose 'a', 's', 'm', or 'd'")
+      prompt(MESSAGES['invalid_op'])
     end
   end
 
   result = case operation
            when 'a'
-             num1.to_i + num2.to_i
+             num1.to_f + num2.to_f
            when 's'
-             num1.to_i - num2.to_i
+             num1.to_f - num2.to_f
            when 'm'
-             num1.to_i * num2.to_i
+             num1.to_f * num2.to_f
            when 'd'
-             if num2 != 0
+             if num2.to_i != 0
                num1.to_f / num2.to_f
-             else
-               "Error – your second number is 0 and you cannot devide by 0."
              end
-           else
-             prompt("Invalid operation - we used the default - add.")
-             num1.to_i + num2.to_i
            end
 
   prompt("#{operation_to_msg(operation)} your numbers...")
@@ -124,10 +128,9 @@ loop do # main loop
   ")
 
   # end of main loop
-  prompt("Do you want to perform another calculation?
-  Enter 'y' for yes, 'n' for no or exit.")
+  prompt(MESSAGES['go_again'])
   go_again = Kernel.gets().chomp()
-  break unless go_again.downcase == "y"
+  break unless go_again.downcase == "y" || go_again.downcase == "y "
 end
 
 prompt("Thank you, #{name}. Goodbye.")

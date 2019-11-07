@@ -1,0 +1,31 @@
+# YAML - calculator_messages.yml
+
+welcome: "Welcome to Calculator! Please enter your name:"
+  
+valid_name: "Please enter a valid name."
+
+first_num: "Enter your first number:"
+
+sec_num: "Enter your second number:"
+
+valid_num: "Please enter a valid number."
+
+math_operation: |
+  "What math operation do you want to perform on your numbers?
+  Enter:
+  a to add,
+  s to subtract,
+  m to multiply,
+  or d to divide"
+  
+sec_num_zero: |
+  "Error – your second number is 0 and you cannot divide by 0.
+  Please choose 'a', 's', or 'm' instead:"
+  
+invalid_op: "Must choose 'a', 's', 'm', or 'd'"
+
+go_again: |
+  "Do you want to perform another calculation?
+  Enter 'y' for yes, 'n' for no or exit."
+
+
