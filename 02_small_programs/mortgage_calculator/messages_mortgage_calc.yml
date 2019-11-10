@@ -1,6 +1,8 @@
 # YAML – messages_mortgage_calc.yml
 
-loan_amount: "Enter Loan Amount (number above 0):"
+welcome: "Welcome to the Mortgage Calculator!"
+
+loan_amount: "Please enter Loan Amount (number above 0):"
 
 loan_amount_error: "Please enter a valid Loan Amount (number above 0)."
 
@@ -12,5 +14,6 @@ duration: "Enter Loan Duration (in years):"
 
 duration_error: "Please enter a valid number of years (1 or more)."
 
-go_again: "Go again? (Enter 'y' for yes, 'n' for no or exit.)"
+go_again: "Go again? (Enter 'y' or 'yes' to start again. Anything else will exit.)"
 
+go_again_invalid: "Please enter 'y' for yes or 'n' to exit."
