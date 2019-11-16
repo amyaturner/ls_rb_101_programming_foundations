@@ -1,0 +1,15 @@
+# YAML - messages_rps.yml
+
+welcome: "Welcome to Rock Paper Scissors Spock Lizard! Each match is 5 rounds. You can exit the game at the end of each round or match."
+player_go: "Please enter 'r' for Rock, 'p' for Paper, 'sc' for Scissors, 'sp' for Spock, or 'l' for Lizard."
+invalid_player_choice: "Invalid entry. Please enter 'r' for Rock, 'p' for Paper, 'sc' for Scissors, 'sp' for Spock, or 'l' for Lizard."
+clarify_s: "You entered 's'. Did you mean 'sc' for Scissors, or did you mean 'sp' for Spock?"
+player_wins_round: "YOU WIN ROUND!"
+comp_wins_round: "COMPUTER WINS ROUND!"
+tie: "IT'S A TIE!"
+player_wins_match: "YOU WIN MATCH!"
+computer_wins_match: "COMPUTER WINS MATCH!"
+go_again?: "Another round? Enter 'y' for yes, 'n' for no/exit."
+invalid_go_again_answer: "Please enter 'y' for yes, 'n' for no/exit."
+start_another_match?: "Would you like to play another match? Enter 'y' for yes, 'n' for no/exit."
+invalid_start_another_match?_answer: "Please enter 'y' for yes, 'n' for no/exit."
